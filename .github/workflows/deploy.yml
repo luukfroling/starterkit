@@ -40,7 +40,7 @@ jobs:
       
       - name: install dependencies
         run: |
-          npm install qrcode
+          npm install qrcode-generator
 
         # to build the typst and latex pdf
       - name: Setup Typst
