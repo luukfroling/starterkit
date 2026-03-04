@@ -36,6 +36,8 @@ const iframeTransform = {
         // remove working directory from vfile
         const relativePath = vfile.history[0].replace(process.cwd(), '');
 
+        console.log("Relative path of the file being processed: ", relativePath);
+        
         //remove filename
         const folderPath = relativePath.substring(0, relativePath.lastIndexOf('\\'));
 
