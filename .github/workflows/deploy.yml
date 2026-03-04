@@ -37,6 +37,10 @@ jobs:
           node-version: 18.x
       - name: Install MyST
         run: npm install -g mystmd
+      
+      - name: install dependencies
+        run: |
+          npm install qrcode
 
         # to build the typst and latex pdf
       - name: Setup Typst
