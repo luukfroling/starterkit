@@ -31,6 +31,8 @@ const iframeTransform = {
 
     if (isPDF) {
 
+        console.log("PDF build detected, processing iframes...");
+
         // remove working directory from vfile
         const relativePath = vfile.history[0].replace(process.cwd(), '');
 
@@ -42,6 +44,8 @@ const iframeTransform = {
         for (const [index, node] of rootChildren.entries()) {
 
             if (node.type === "container" && node.children[0]?.type === "iframe") {
+
+                console.log("Found iframe node, generating QR code...");
 
                 //check if folder exists, if not create it using the relative path
                 if (!existsSync(`.${folderPath}\\${image_folder}`)) {
@@ -99,6 +103,7 @@ const iframeTransform = {
                                     ]
                                 }
                             ]
+                        console.log("Not youtube, QR code generated and node replaced successfully.");
                         continue; // Skip non-YouTube links
                     }
 
@@ -145,6 +150,7 @@ const iframeTransform = {
                             ]
                         }
                     ]
+                    console.log("QR code generated and node replaced successfully.");
                 } catch (err) {
                     console.log("[IFRAME] Error generating QR code:", err);
                 }
