@@ -52,6 +52,7 @@ const iframeTransform = {
                 //check if folder exists, if not create it using the relative path
                 if (!existsSync(`.${folderPath}\\${image_folder}`)) {
                     mkdirSync(`.${folderPath}\\${image_folder}`);
+                    console.log("created folder for QR code images at ", `.${folderPath}\\${image_folder}`);
                 }
 
                 const url = node.children[0]?.src || "No link found";
