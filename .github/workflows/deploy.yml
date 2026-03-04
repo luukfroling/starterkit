@@ -46,19 +46,19 @@ jobs:
       - name: Setup Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Install LaTeX tooling
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            latexmk \
-            texlive-xetex \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            fonts-lmodern
+      # - name: Install LaTeX tooling
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y \
+      #       latexmk \
+      #       texlive-xetex \
+      #       texlive-latex-extra \
+      #       texlive-fonts-recommended \
+      #       fonts-lmodern
 
       - name: Build PDF
         run: |
-          myst build --typst --pdf
+          myst build --typst
 
       - name: Upload Output PDF as Artifact
         uses: actions/upload-artifact@v4
