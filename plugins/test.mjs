@@ -12,7 +12,7 @@
 
 import QRCode from "qrcode-generator";
 import { writeFile } from "fs/promises";
-import { existsSync, mkdirSync } from "fs";
+import { existsSync, mkdirSync, readdirSync } from "fs";
 
 const image_folder = "qr_images";
 let image_path = "/qr_images";
@@ -52,6 +52,10 @@ const iframeTransform = {
                 //check if folder exists, if not create it using the relative path
                 if (!existsSync(`.${folderPath}\\${image_folder}`)) {
                     mkdirSync(`.${folderPath}\\${image_folder}`);
+
+                    // show all folders in working directory (./)
+                    const allFoldersInDir = readdirSync(`.`).filter(f => console.log("Folder in working directory: ", f));
+
                     console.log("created folder for QR code images at ", `.${folderPath}\\${image_folder}`);
                 }
 
