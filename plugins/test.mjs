@@ -72,6 +72,8 @@ const iframeTransform = {
 
                     // Save SVG to file
                     const outputFile = `.${folderPath}\\${image_folder}\\qrcode_${node.qr_index}.svg`;
+                    console.log("Saving QR code SVG to ", outputFile);
+                    
                     await writeFile(outputFile, svg, "utf8");
 
                     //Check if the embed is a youtube link
